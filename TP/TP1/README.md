@@ -37,12 +37,12 @@ Now that we’ve obtained the project, let’s take a look at its structure:
 
 SBT stands for Scala Build Tool, it’s a dependency manager and build tool for Scala. We will use it to compile our code and run the tests.
 
-Start SBT by positioning yourself in `programmation-fonctionnelle-ul/TP/TP1/degrees/` and run the following command:  
+Start SBT by positioning yourself in `programmation-fonctionnelle-ul/TP/TP1/` and run the following command:  
 ```
 $ sbt
 ```
 
-This command has to be run in the project’s root directory (in our case, ``programmation-fonctionnelle-ul/TP/TP1/degrees/`, but in the general case it is the directory that you cloned from git and that contains the `build.sbt` file).
+This command has to be run in the project’s root directory (in our case, ``programmation-fonctionnelle-ul/TP/TP1/`, but in the general case it is the directory that you cloned from git and that contains the `build.sbt` file).
 
 Once it’s finished starting (this may take a while), you’ll be able to enter SBT commands:
 
@@ -57,7 +57,7 @@ Let’s look at the output of the test command in more detail:
 $ sbt
 [info] welcome to sbt 1.9.4 (Eclipse Adoptium Java 17)
 [info] loading settings for project degrees-build-build-build from metals.sbt ...
-[info] loading project definition from /Users/username/degrees/project/project/project
+[info] loading project definition from /Users/username/TP1/project/project/project
 [info] loading settings for project degrees-build-build from metals.sbt ...
 [info] loading project definition from /Users/username/degrees/project/project
 [success] Generated .bloop/degrees-build-build.json
@@ -109,7 +109,7 @@ This tells us several things:
 ## Fixing the Tests
 
 ### Open VSCode
-If it is not already done, open VSCode and go to the `programmation-fonctionnelle-ul/TP/TP1/degrees/` folder. The first time the IDE starts, it will take some time to download more components. Eventually it will ask you to import the build, please click “Import build”. You’ll need to wait a bit for the import to finish, if an error appears try closing and restarting VS Code in the same way we started it above.
+If it is not already done, open VSCode and go to the `programmation-fonctionnelle-ul/TP/TP1/` folder. The first time the IDE starts, it will take some time to download more components. Eventually it will ask you to import the build, please click “Import build”. You’ll need to wait a bit for the import to finish, if an error appears try closing and restarting VS Code in the same way we started it above.
 
 ### Understand the Logs
 You are now going to fix the tests! Earlier we mentioned a failing test, the stack trace told us that it was failing on line `10` of the file `src/test/scala/degrees/ConvertTest.scala.`
@@ -361,7 +361,7 @@ def shouldIWearAJacket(temperature: Double) : String =
 </details><br/>
 
 
-Now, let us design test cases for our function! To do so, create a new file called `stylistAssistantTest` in `degrees/src/test/scala/degree` and write the following code: 
+Now, let us design test cases for our function! To do so, create a new file called `stylistAssistantTest` in `src/test/scala/degree` and write the following code: 
 
 
 ```Scala
