@@ -2,16 +2,6 @@
 
 The goal of this exercise is to familiarize yourself with the tools and environment of this course by designing some functions related to conversion between Celsius and Fahrenheit degrees.
 
-For each exercise below, we provide the signature of the functions you need to write. The body is replaced with `???`: that's the part you need to come up with!  _We strongly recommend that you think about these exercises on paper first_.
-
-Exercises marked with ⭐️ are the most important ones.
-Exercises marked with 🔥 are the most challenging ones.
-
-You do not need to complete all exercises to succeed in this class, and you do not need to do all exercises in the order they are written.
-
-**You are allowed to copy/clone/fork this repository, but not to share solutions of the exercise in any public repository or web page.**
-
-
 ## Obtaining the Exercise Files
 * Go to the following page: [https://github.com/jcailler/programmation-fonctionnelle-ul.git](https://github.com/jcailler/programmation-fonctionnelle-ul.git).
 * Clone or fork the repository: `git clone https://github.com/jcailler/programmation-fonctionnelle-ul.git` or download it by clicking on the green `<code>` button and selecting `download`.
