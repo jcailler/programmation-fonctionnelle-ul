@@ -112,7 +112,7 @@ This tells us several things:
 If it is not already done, open VSCode and go to the `programmation-fonctionnelle-ul/TP/TP1/degrees/` folder. The first time the IDE starts, it will take some time to download more components. Eventually it will ask you to import the build, please click “Import build”. You’ll need to wait a bit for the import to finish, if an error appears try closing and restarting VS Code in the same way we started it above.
 
 ### Understand the Logs
-You are now going to fix the tests! Earlier we mentioned a failing test, the stack trace told us that it was failing on line `10` of the `file src/test/scala/degrees/ConvertTest.scala.`
+You are now going to fix the tests! Earlier we mentioned a failing test, the stack trace told us that it was failing on line `10` of the file `src/test/scala/degrees/ConvertTest.scala.`
 
 Here is the source code of the failing test:
 
@@ -122,7 +122,7 @@ test("fahrenheitToCelsius(32) should be 0"):
 ```
 <div style="text-align: right; color:grey"> 
 
-[degrees/src/test/scala/degrees/ConvertTest.scala](./degrees/src/test/scala/degrees/ConvertTest.scala)
+[src/test/scala/degrees/ConvertTest.scala](./src/test/scala/degrees/ConvertTest.scala)
 </div>
 
 The first line gives a name to the test. The second line runs `fahrenheitToCelsius(32)` and tests that it equals `0.0` (up to some delta, because we are dealing with floating-point numbers), but in our case, we never got to this point because an exception was thrown, recall that the second line of the stack trace was:
@@ -165,7 +165,7 @@ def fahrenheitToCelsius(fahrenheit: Double): Double =
 ```
 <div style="text-align: right; color:grey"> 
 
-[degrees/src/main/scala/degrees/convert.scala](./degrees/src/main/scala/degrees/convert.scala)
+[src/main/scala/degrees/convert.scala](./src/main/scala/degrees/convert.scala)
 </div>
 
 Now we know why the test failed: `fahrenheitToCelsius` always returns `42.0`!
@@ -282,7 +282,7 @@ In order to exit the Scala REPL and go back to sbt, type `Ctrl+D`.
 
 The last way to run your code is to run a *main function*. A main function is a method aimed at being called from the command line. It is similar to a `main` method in Java. We will come back to this later in the course.
 
-In this exercise, there is a main called `main` defined for you in the `cli` package ([degrees/src/main/scala/degrees/cli/main.scala](./TP/TP1/scr/degrees/src/main/scala/degrees/cli/main.scala)). You do not need to understand or modify this code yet. 
+In this exercise, there is a main called `main` defined for you in the `cli` package ([src/main/scala/degrees/cli/main.scala](./src/main/scala/degrees/cli/main.scala)). You do not need to understand or modify this code yet. 
 
 However, know that you can run this main function by typing `run` in the SBT console, followed by the arguments expected by this method. In this exercise, the main function defined for you expects two arguments: the first one is the temperature to convert, and the second one is the unit of the temperature to convert. For example:
 
@@ -336,7 +336,7 @@ val res1: Double = 0.5555555555555556
 ```
 </details><br/>
 
-Thanks to your help, Bob was completely amazed by the power of Scala. He decided to use this power in order to help him to choose what to wear in the morning. So far, he created a file `stylistAssistant` in `degrees/src/main/scala/degrees/stylistAssistant.scala` and wrote the following code: 
+Thanks to your help, Bob was completely amazed by the power of Scala. He decided to use this power in order to help him to choose what to wear in the morning. So far, he created a file `stylistAssistant` in `src/main/scala/degrees/stylistAssistant.scala` and wrote the following code: 
 
 ```Scala
 package degrees
