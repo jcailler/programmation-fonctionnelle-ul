@@ -1,4 +1,4 @@
-# Functional Programming - Exercise 0: Setting up Visual Studio Code and Scala
+# Functional Programming - TP 0: Setting up Visual Studio Code and Scala
 
 This page provides a step-by-step guide to install Scala 3 and/or Visual Studio Code (VSCode) on [Kapps'Ul](https://kappsul.su.univ-lorraine.fr/) or on your computer, as well a some useful plugins. We *strongly* recommend an installation on your own computer. 
 
@@ -8,7 +8,7 @@ This page provides a step-by-step guide to install Scala 3 and/or Visual Studio 
 
 ### Kapps'Ul 
 
-You can use Kapps'UL, a virtual environnement provided by the FST, to use a VSCode instance with Scala and the relevant plugins installed. Your data will be stored on this platform, you will not be able to access them on your computer. 
+You can use Kapps'UL, a virtual environment provided by the FST, to use a VSCode instance with Scala and the relevant plugins installed. Your data will be stored on this platform, you will not be able to access them on your computer. 
 
 *Warning:* if you want to use this environment outside of the faculty's network, you will have to use a [VPN](https://numerique.univ-lorraine.fr/catalogue-des-services/reseau-distant-vpn). 
 
@@ -20,7 +20,7 @@ You can use Kapps'UL, a virtual environnement provided by the FST, to use a VSCo
 * Wait until the app is deployed
 * In the installation notice, under the section *IDE en ligne (VSCode)*, on the link after *nom DNS* in a new tab.
 * You will reach another login page. Past the password given under the *secrets* section on the previous page.
-* You can now set-up your virtual instance of VSCode!
+* You can now set up your virtual instance of VSCode!
 
 ### Computer Installation
 
@@ -33,8 +33,8 @@ You can use Kapps'UL, a virtual environnement provided by the FST, to use a VSCo
 
 We recommend that you use VSCode to do the course exercises. To be able to use Scala on the command line, or in interactive mode, or to use other text editors for writing Scala code, follow those steps to install Scala and the Scala build tool `sbt`:
 
-* Open your favorite web browser and go to this webpage: https://docs.scala-lang.org/getting-started/index.html
-* Follow the instruction related to your OS to install Scala version 3
+* Open your favorite web browser and go to this webpage: [https://docs.scala-lang.org/getting-started/index.html]([https://docs.scala-lang.org/getting-started/index.html)
+* Follow the instructions related to your OS to install Scala version 3
 * You may need to restart your terminal, log out, or reboot in order for the changes to take effect
 * You should have the commands `scala` and `sbt` available now.
 
@@ -55,10 +55,10 @@ For the following steps to work, you need to have followed one of the [two previ
 This repository contains a simple hello-world project that you can use to get started. 
 
 * You first need to create a local copy of the repository contents on your computer. There are several ways to do this:
-    - If you have `git` installed on your computer, you can *clone* the repository using the command `git clone https://github.com/ur-tcs/programming-2-ex-0.git`, which will copy over all files to a sub-directory of your current directory.
-    - The same can be done directly in VSCode: select `File - New Window` and the command `Clone Git Repository ...`. Provide the URL `https://github.com/ur-tcs/programming-2-ex-0.git`
+    - If you have `git` installed on your computer, you can *clone* the repository using the command `git clone https://github.com/jcailler/programmation-fonctionnelle-ul.git`, which will copy over all files to a sub-directory of your current directory.
+    - The same can be done directly in VSCode: select `File - New Window` and the command `Clone Git Repository ...`. Provide the URL `https://github.com/jcailler/programmation-fonctionnelle-ul.git`
     - In your web browser you can download the repository contents by clicking on the green `<code>` button, selecting `Download ZIP`, and then unpacking the downloaded zip file.
-* In VSCode, choose `File - Open Folder` and select the `programming-2-ex-0/hello-world` directory.
+* In VSCode, choose `File - Open Folder` and select the `https://github.com/jcailler/programmation-fonctionnelle-ul/TP/TP0/hello-world` directory.
 * You will be able to see the different downloaded files in the `Explorer` pane, in particular the `build.sbt` file containing the Scala build configuration, and the sources `src/main/scala/Main.scala`.
 * To compile and run this project, you need to import the build settings into VSCode. Scala Metals might by itself offer to `Import build`, which you can agree to. Otherwise, change to the Metals pane (the "m" icon on the left side) and select the `Build Command` &rarr; `Import build`.
 * Once the project has been compiled, you can execute the program by selecting the `Main.scala` file and clicking on `run` or `debug`, occurring above the program code.
@@ -67,8 +67,8 @@ This repository contains a simple hello-world project that you can use to get st
 
 ### On the command line, by setting up a new project using sbt
 
-* Create a folder `programming-2-ex-0`
-* Go into this folder: `cd programming-2-ex-0`
+* Create a folder `programmation-fonctionnelle`
+* Go into this folder: `cd programmation-fonctionnelle`
 * Run `sbt new scala/scala3.g8`
 * Give a name to your project (for example, `hello-world`)
 * Go into your project: `cd hello-world`
@@ -76,7 +76,7 @@ This repository contains a simple hello-world project that you can use to get st
 * Run `sbt`
 * Type `run`
 
-⚠️ You need to be in the folder `programming-2-ex-0/hello-world` to be able to use `sbt`!
+⚠️ You need to be in the folder `programmation-fonctionnelle/hello-world` to be able to use `sbt`!
 
 Congrats, you have successfully compiled your first program in Scala! Feel free to explore the project to get familiar with the syntax and the file hierarchy. 
 
@@ -91,7 +91,7 @@ Here is the initial project that you have downloaded:
     - src
         - main
             - scala (all of your Scala code goes here)
-                - Main.scala (Entry point of program) <-- this is all we need for now
+                - Main.scala (Entry point of the program) <-- this is all we need for now
         - test
             - scala
                 - MySuite.scala (unit tests for this project)
@@ -104,17 +104,17 @@ When you compiled it, new files appears. Do not pay too much attention to them f
 ```
 - programmation-fonctionnelle-ul
     - TP
-        - profon-ex-0
-        - profon-ex-1
+        - TP0
+        - TP1
         - ...
     - Projects
         - ...
 ```
 
-However, since VSCode can struggle to manage multiple Scala project at the same time, we recommend you to work with on project at a time. In addition, this repository will be updated every week. You can pull the update (but be sure to save your changes before) or download the new version every time. 
+However, since VSCode can struggle to manage multiple Scala project at the same time, we recommend you to work with only one project at a time. In addition, this repository will be updated every week. You can pull the update (but be sure to save your changes before) or download the new version every time. 
 
 * When we ask you to type and/or run a specific command (for instance, `git clone myProject`), we can directly give you the command or write it that way: ```$ git clone myProject```. The `$` symbol is called the prompt and is not part of the command. Writing a project is a convention used to indicate that the following command should be executed in a terminal.
 
 ## Next Steps
 
-You can now start with the first exercise of the course: [TP1](https://github.com/jcailler/programmation-fonctionnelle-ul/)
+You can now start with the first exercise of the course: [TP1](../TP1)
