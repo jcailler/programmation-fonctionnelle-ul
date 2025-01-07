@@ -20,7 +20,7 @@ You can use Kapps'UL, a virtual environment provided by the FST, to use a VSCode
 * Wait until the app is deployed
 * In the installation notice, under the section *IDE en ligne (VSCode)*, on the link after *nom DNS* in a new tab.
 * You will reach another login page. Past the password given under the *secrets* section on the previous page.
-* You can now set up your virtual instance of VSCode!
+* You can now set up your virtual instance of VSCode! Please jump to the [Scala Installation part](#scala-installation) below.
 
 ### Computer Installation
 
