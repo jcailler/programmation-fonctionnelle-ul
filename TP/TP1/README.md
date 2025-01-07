@@ -20,15 +20,15 @@ Now that we’ve obtained the project, let’s take a look at its structure:
     ├── main
     │   └── scala
     │       ├── degrees
-    │       │   ├── main.scala
-    │       │   └── convert.scala
+    │       │   ├── Main.scala
+    │       │   └── Convert.scala
     │       └── examples.worksheet.sc
     └── test
         └── scala
             └── degrees
                 └── ConvertTest.scala
 ``` 
-* All the files ending with `.sbt` or in the `project/ directory` are build tool configuration files: you don’t need to modify them yet.
+* All the files ending with `.sbt` or in the `project/ directory` are build tool configuration files: you don’t need to modify them yet. We will discuss them later in the course.
 * The material for this exercise is in `src/main/scala/`.
 * The sources of the unit tests are in `src/test/scala/`. You will need to make all the tests pass to complete the exercise, and you should write additional tests to check for cases that our tests do not cover.
 
@@ -164,7 +164,7 @@ def fahrenheitToCelsius(fahrenheit: Double): Double =
 ```
 <div style="text-align: right; color:grey"> 
 
-[src/main/scala/degrees/convert.scala](./src/main/scala/degrees/convert.scala)
+[src/main/scala/degrees/convert.scala](./src/main/scala/degrees/Convert.scala)
 </div>
 
 Now we know why the test failed: `fahrenheitToCelsius` always returns `42.0`!
@@ -281,7 +281,7 @@ In order to exit the Scala REPL and go back to sbt, type `Ctrl+D`.
 
 The last way to run your code is to run a *main function*. A main function is a method aimed at being called from the command line. It is similar to a `main` method in Java. We will come back to this later in the course.
 
-In this exercise, there is a main called `main` defined for you in the `degree` package ([src/main/scala/degrees/main.scala](./src/main/scala/degrees/main.scala)). You do not need to understand or modify this code yet. 
+In this exercise, there is a main called `Main` defined for you in the `degree` package ([src/main/scala/degrees/main.scala](./src/main/scala/degrees/main.scala)). You do not need to understand or modify this code yet. 
 
 However, know that you can run this main function by typing `run` in the SBT console, followed by the arguments expected by this method. In this exercise, the main function defined for you expects two arguments: the first one is the temperature to convert, and the second one is the unit of the temperature to convert. For example:
 
@@ -335,7 +335,7 @@ val res1: Double = 0.5555555555555556
 ```
 </details><br/>
 
-Thanks to your help, Bob was completely amazed by the power of Scala. He decided to use this power in order to help him to choose what to wear in the morning. So far, he created a file `stylistAssistant` in `src/main/scala/degrees/stylistAssistant.scala` and wrote the following code: 
+Thanks to your help, Bob was completely amazed by the power of Scala. He decided to use this power in order to help him to choose what to wear in the morning. So far, he created a file `StylistAssistant` in `src/main/scala/degrees/StylistAssistant.scala` and wrote the following code: 
 
 ```Scala
 package degrees
@@ -360,7 +360,7 @@ def shouldIWearAJacket(temperature: Double) : String =
 </details><br/>
 
 
-Now, let us design test cases for our function! To do so, create a new file called `stylistAssistantTest` in `src/test/scala/degree` and write the following code: 
+Now, let us design test cases for our function! To do so, create a new file called `StylistAssistantTest` in `src/test/scala/degree` and write the following code: 
 
 
 ```Scala
