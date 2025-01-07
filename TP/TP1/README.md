@@ -28,7 +28,7 @@ Now that we’ve obtained the project, let’s take a look at its structure:
             └── degrees
                 └── ConvertTest.scala
 ``` 
-* All the files ending with `.sbt` or in the `project/ directory` are build tool configuration files: you don’t need to modify them yet. We will discuss them later in the course.
+* All the files ending with `.sbt` or in the `project/ directory` are build tool configuration files: you don’t need to modify them yet.
 * The material for this exercise is in `src/main/scala/`.
 * The sources of the unit tests are in `src/test/scala/`. You will need to make all the tests pass to complete the exercise, and you should write additional tests to check for cases that our tests do not cover.
 
