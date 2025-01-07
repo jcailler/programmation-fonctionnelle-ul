@@ -1,5 +1,4 @@
 package degrees
-package cli
 
 @main def main(value: Int, unit: String) =
   unit match

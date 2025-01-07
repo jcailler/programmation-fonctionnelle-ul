@@ -20,8 +20,7 @@ Now that we’ve obtained the project, let’s take a look at its structure:
     ├── main
     │   └── scala
     │       ├── degrees
-    │       │   ├── cli
-    │       │   │   └── main.scala
+    │       │   ├── main.scala
     │       │   └── convert.scala
     │       └── examples.worksheet.sc
     └── test
@@ -282,7 +281,7 @@ In order to exit the Scala REPL and go back to sbt, type `Ctrl+D`.
 
 The last way to run your code is to run a *main function*. A main function is a method aimed at being called from the command line. It is similar to a `main` method in Java. We will come back to this later in the course.
 
-In this exercise, there is a main called `main` defined for you in the `cli` package ([src/main/scala/degrees/cli/main.scala](./src/main/scala/degrees/cli/main.scala)). You do not need to understand or modify this code yet. 
+In this exercise, there is a main called `main` defined for you in the `degree` package ([src/main/scala/degrees/main.scala](./src/main/scala/degrees/main.scala)). You do not need to understand or modify this code yet. 
 
 However, know that you can run this main function by typing `run` in the SBT console, followed by the arguments expected by this method. In this exercise, the main function defined for you expects two arguments: the first one is the temperature to convert, and the second one is the unit of the temperature to convert. For example:
 
