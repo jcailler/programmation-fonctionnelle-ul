@@ -1,35 +1,17 @@
 # Functional Programming - TP 0: Setting up Visual Studio Code and Scala
 
-This page provides a step-by-step guide to install Scala 3 and/or Visual Studio Code (VSCode) on [Kapps'Ul](https://kappsul.su.univ-lorraine.fr/) or on your computer, as well a some useful plugins. We *strongly* recommend an installation on your own computer. 
+This page provides a step-by-step guide to install Scala 3 and/or Visual Studio Code (VSCode) on the FST's computer or on your own computer, as well a some useful plugins. We recommend an installation on your own computer. 
 
 *Warning:* It's essential to ensure that the paths to your projects do not contain spaces, special characters, or non-English letters. This is especially relevant on Windows, where historically, issues arose with usernames containing spaces or special characters.
 
 ## Tool installation
 
-### Kapps'Ul 
-
-You can use Kapps'UL, a virtual environment provided by the FST, to use a VSCode instance with Scala and the relevant plugins installed. Your data will be stored on this platform, you will not be able to access them on your computer. 
-
-*Warning:* if you want to use this environment outside of the faculty's network, you will have to use a [VPN](https://numerique.univ-lorraine.fr/catalogue-des-services/reseau-distant-vpn). 
-
-* Go to [Kapps'Ul](https://kappsul.su.univ-lorraine.fr/) and log in with your University's credentials
-* Click on *Installer une application*
-* Search for *Scala* and click on the tile
-* Click on *Deployer*
-* Give a name to your instance (for example, *Programmation Fonctionnelle*)
-* Wait until the app is deployed
-* In the installation notice, under the section *IDE en ligne (VSCode)*, on the link after *nom DNS* in a new tab.
-* You will reach another login page. Past the password given under the *secrets* section on the previous page.
-* You can now set up your virtual instance of VSCode! Please jump to the [Scala Installation part](#scala-installation) below.
-
-### Computer Installation
-
-#### VSCode Installation
+### VSCode Installation
 
 * Open your favorite web browser and go to this webpage: https://code.visualstudio.com/download
 * Download the executable corresponding to your OS and follow the instructions.
 
-#### Scala Installation
+### Scala Installation
 
 We recommend that you use VSCode to do the course exercises. To be able to use Scala on the command line, or in interactive mode, or to use other text editors for writing Scala code, follow those steps to install Scala and the Scala build tool `sbt`:
 
@@ -38,7 +20,7 @@ We recommend that you use VSCode to do the course exercises. To be able to use S
 * You may need to restart your terminal, log out, or reboot in order for the changes to take effect
 * You should have the commands `scala` and `sbt` available now.
 
-#### Scala Extension for VSCode
+### Scala Extension for VSCode
 
 The extension "Scala (Metals)" adds functionality to work with Scala to VSCode, and is needed if you want to solve the exercises with VSCode. To install this extension:
 
@@ -97,7 +79,68 @@ Here is the initial project that you have downloaded:
                 - MySuite.scala (unit tests for this project)
 ```
 
-When you compiled it, new files appears. Do not pay too much attention to them for now, you are going to work with `Main.scala`, at least at the beginning. 
+
+#### src
+
+In this folder, all code you are writing is stored. It contains the main folder and the test folder.
+
+  1. /main
+    
+  This folder contains all files with the actual code of your project. At the start, there is only the ```Main.scala``` file. The file named "Main" is usually the starting point when you run your code. As you might have noticed from earlier exercises, the amount of ```.scala``` files in this folder can increase quite rapidly, so if needed sort your files in fittingly named folders for better oversight. 
+
+  2. /test
+    
+  This folder contains all files with automated tests for your project. At the start, it only contains a short test that always succeeds. You have probably seen and used such tests in earlier exercises. Later in this exercise you will learn to write these tests yourself (if you haven't written some yourself already). You do not need to write all tests into one file, you can spread them over multiple separate files.
+
+#### target
+
+Generated files (compiled classes, packaged jars, managed files, caches, and documentation) will be written to the target directory by default. You can take a look at all included files, but you will probably not need to change any of these files right now.
+
+#### build.sbt
+
+```scala
+val scala3Version = "3.4.0"
+```
+
+As part of your build definition, you specify the Scala version to be used in your build. sbt will take care of downloading and installing this version of the compiler. This allows people with different system configurations to build the same projects with consistent results.
+
+```scala
+lazy val root = project
+  .in(file("."))
+  .settings(
+    name := "hello-world",
+    version := "0.1.0-SNAPSHOT",
+
+    scalaVersion := scala3Version,
+
+    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
+  )
+
+```
+
+In the second part, there are various other settings for your project, including the name of the project folder, the build version or any library dependencies. For a detailed explaination, read the [sbt documentation](https://www.scala-sbt.org/1.x/docs/Basic-Def.html)
+
+#### project
+
+build.sbt conceals how sbt really works. sbt builds are defined with Scala code. That code, itself, has to be built. What better way than with sbt?
+
+The project directory is another build inside your build, which knows how to build your build. Your build definition is an sbt project.
+
+This topic is rather complex but you can read about what it is and how to use it in the [sbt documentation](https://www.scala-sbt.org/1.x/docs/Organizing-Build.html)
+
+#### README.md
+
+A README is a Markdown file that usually encapsulates important information about the provided code. README files typically include information on:
+
+- What the project does
+- Why the project is useful
+- How users can get started with the project
+- Where users can get help with your project
+- Who maintains and contributes to the project
+
+When taking a look at the README file you generated in the beginning, you can read about all these topics.
+
+If you have any important information about your code which should not be part of the code itself as a comment, do not hesitate to write everything into the README file. Using the Markdown format, you have various very easy options to modify, structure or format your text. A quick oversight over all functions of Markdown offers the [cheatsheet](https://www.markdownguide.org/cheat-sheet/). If you need a preview of how your README will look, click the *Open Preview to the Side* button (book with magnifying glasses) on the top right.
 
 ## Exercises Management for this Course
 * We will provide a single repository for all the exercises and projects of this course, with the following hierarchy:  
