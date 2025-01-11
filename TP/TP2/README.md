@@ -7,7 +7,9 @@ In this exercise you will learn about structural recursion in scala.
 * The exercise files are found in the folder `TP2/src/main/scala/recursion`. The exercises are those files which start with `Ex` (for exercise), sorted by the type of structure you will work on. The files `IntList.scala` and `IntTree.scala` should **stay unchanged**. They define the necessary classes you will work on in the exercises.
 * You will perform recursion on different structures like lists, trees, etc. The sufficient background to solve the exercises is given below.
 * The number of exercises is quite large, the exercises are provided for training purposes. Feel free to skip some of the simpler ones if you already have a good grasp on recursion and Scala programming!
-* For each function we provided a test. As for the first exercise you can run the tests by entering `sbt` while you are in your project directory, and then compiling your code using `compile`. To run all the tests use `test`. If you only want to run the test of a specific function use `testOnly -- "*function*"`, where function is the name of the function you want to test.
+* For each function we provided a test. As for the first exercise you can run the tests by entering `sbt` while you are in your project directory, and then compiling your code using `compile`. To run all the tests use `test`. If you only want to run the test of a specific function use `testOnly -- "*package.testfile.function*"`, where function is the name of the function you want to test. You can also use the green arrow in VSCode.
+
+
 
 For example you might find the following signature of the factorial function in the file [`ExLists.scala`](./src/main/scala/recursion/ExLists.scala):
 ```scala
