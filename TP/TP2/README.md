@@ -1,6 +1,6 @@
-# Functional Programming - TP 2: Recursion
+# Functional Programming - TP 2: Recursion & Classes
 
-In this exercise you will learn about structural recursion in scala.
+In this exercise you will learn about structural recursion and classes management in scala.
 
 ## Structural Recursion
 * We provide the signature of the functions you need to write in the exercise files. The body is replaced with `???`: that’s the part you need to come up with!
@@ -197,3 +197,81 @@ Note the type of the `head` method: it returns a `Char`, not a `String`. A `Char
 For the respective exercises, you must not use any other method than `isEmpty`, `head` and `tail` on strings.
 
 You are now prepared to solve the exercises in the file [`ExStrings.scala`](./src/main/scala/recursion/ExStrings.scala) and implement the corresponding functions.
+
+## Geometric Objects
+
+We want to construct a class hierarchy of some geometric objects, namely circles, squares and cubes. Before we guide you through the exercise, here is what we want to implement in the end. You may try to implement this without further reading. The file for this exercise is [`Geometry.scala`](./src/main/scala/geometricObjects/Geometry.scala)
+
++ We want to implement three classes: `Circle`, `Square` and `Cube`.
++ Each class should have a dimension, a diameter (diameter for circle or diagonal for square and cube) and should be able to compute their area or volume.
++ Clearly some of these objects share some properties. The goal is to model the shared aspects via traits and/or abstract classes
++ In order to compute the area of a circle, we don't want to use the "exact" value of pi, but instead create our own constant `approxPi`. This value should be equal for all objects of the class `Circle`, but we should be able to change the value uniformly by just modifying one line of code.
++ For every geometric object we would like to have a method `quadrature`, which returns a cubic object with the same volume as the original one (with respect to `approxPi`), e.g. if `circ1` is an object of the class `Circle`, then `circ1.quadrature` returns a square with the same surface as circ1.
++ As a bonus you can implement another class `Ball` analogously to circle. At least you should keep the right traits in mind such that such an extension is easily possible.
+
+Here are some useful tools for this exercise:
+```scala
+Math.Pi                                     // The exact value of Pi
+Math.pow(base, exponent)                    // The exponentiation function
+Math.sqrt(x)                                // The square root
+Math.round(x*Math.pow(10,n))/Math.pow(10,n) // This will round the value x to n decimals
+length = diameter/(Math.sqrt(n))            // Connection between length and diameter in an n-dimensional cube
+```
+
+We encourage you to test your program yourself. A good playground is again a worksheet, where you imported the necessary files.
+
+<details>
+<summary> Hint: Which classes and traits should I define </summary>
+The following is one of many solutions to this question:
+
++ an abstract class `Geometric` for all of our classes
++ traits `Planar` for `Circle` and `Square`, and `Spatial` for `Cube` (and a possible `Ball`) which all extend `Geometric`
++ classes `Square`, `Circle` and `Cube` which are all subclasses of `Geometric` and have the natural traits.
+</details><br/>
+
+<details>
+<summary> Hint: Which classes/traits should contain which variables/methods </summary>
+Since every geometric object in our case should have a diameter, dimension and volume, those are defined in the abstract class Geometric:
+
+```scala
+abstract class Geometric:
+  def diameter: Double
+  def dimension: Int
+  def volume: Double // for two-dimensional objects, volume is interpreted as the area
+```
+
+The traits `Planar` and `Spatial` tell you in which dimension you are; so the value of `dimension` is fixed in these traits. Furthermore, the traits can already decide which type the `quadrature` method should have: `Square` for the two dimensional and `Cube` for the three dimensional case.
+
+```scala
+trait Planar extends Geometric:
+  def dimension = 2
+  def quadrature: Square
+
+trait Spatial extends Geometric:
+  def dimension = 3
+  def quadrature: Cube
+```
+
+Because `Square` and `Cube` have an easy way to compute their volume, we may implement this in our `Rectangular` trait, which has access to a dimension as it extends `Geometric`. It might be useful to define an extra value `length`.
+
+```scala
+trait Rectangular extends Geometric:
+  def length = diameter/(Math.sqrt(dimension))
+  def volume: Double = Math.pow(length, dimension)
+```
+
+Note that we can now define classes that combine `Planar` or `Spatial` with `Rectangular`.
+</details><br/>
+
+<details>
+<summary> Hint: How to implement approxPi </summary>
+
+Since `approxPi` should play the role of a static variable in Java, we put it into a companion object for our class `Circle`. That is, we create an object with the same name like the class and define a variable `approxPi` in it.
+
+To be precise, your companion object could look something like this:
+```scala
+object Circle {
+  val approxPi = ???
+}
+```
+</details><br/>
