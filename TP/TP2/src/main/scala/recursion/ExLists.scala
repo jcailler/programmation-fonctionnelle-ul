@@ -13,7 +13,7 @@ def fac(n:Int):Int={
 
 /*
  * There is a more efficient way to define fac,
- * such that the the recursive function invocation is the last step when
+ * such that the recursive function invocation is the last step when
  * executing the function body. In this version of the function,
  * fac(n-1) is allowed but n*fac(...) is not permitted.
  * In order to implement this version of the factorial function, we need a
