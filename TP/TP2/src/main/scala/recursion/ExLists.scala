@@ -17,24 +17,20 @@ def fac(n:Int):Int={
  * executing the function body. In this version of the function,
  * fac(n-1) is allowed but n*fac(...) is not permitted.
  * In order to implement this version of the factorial function, we need to 
- * adapt the definition of fac, or to use a helper function hfac that gets 
- * called from our new fac function nfac.
+ * to use a helper function facAux that gets called from our new fac function 
+ * fac2.
  */
 
-def nfac(n:Int) : Int = {
-  def hfac(n:Int, acc:Int) : Int = {
+
+def fac2(n:Int) : Int = {
+  def facAux(n:Int, acc:Int) : Int = {
       //What could be the role of acc?
       ???
   }
-  //With which parameters do you need to call hfac now?
+  // With which parameters do you need to call facAux now?
   ???
 }
 
-// Or 
-
-def nfac2(n: Int, acc: Int): Int = {
-  ???
-}
 
 //
 // Recursion on lists

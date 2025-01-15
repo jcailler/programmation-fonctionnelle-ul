@@ -22,11 +22,8 @@ class ListOpsTests extends munit.FunSuite:
   test("fac"):
     assertEquals(fac(6), 6*5*4*3*2*1)
 
-  test("nfac"):
-    assertEquals(nfac(8),8*7*6*5*4*3*2*1)
-
-  test("nfac2"):
-    assertEquals(nfac2(8),8*7*6*5*4*3*2*1)
+  test("fac2"):
+    assertEquals(fac2(8),8*7*6*5*4*3*2*1)
 
   test("length: on multiple lists"):
     assertEquals(length(IntNil()), 0)
