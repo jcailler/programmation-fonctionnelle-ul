@@ -2,7 +2,7 @@
 
 In this exercise you will learn about structural recursion and classes management in scala.
 
-## Structural Recursion
+## Structural Recursion ⭐️
 * We provide the signature of the functions you need to write in the exercise files. The body is replaced with `???`: that’s the part you need to come up with!
 * The exercise files are found in the folder `TP2/src/main/scala/recursion`. The exercises are those files which start with `Ex` (for exercise), sorted by the type of structure you will work on. The files `IntList.scala` and `IntTree.scala` should **stay unchanged**. They define the necessary classes you will work on in the exercises.
 * You will perform recursion on different structures like lists, trees, etc. The sufficient background to solve the exercises is given below.
@@ -25,7 +25,7 @@ You can go on implementing the other functions in this file. The necessary backg
 Note that the syntax of scala does not require to specify the return type of the function, but for your convenience we already gave it.
 Furthermore the curly braces are not necessary to mark the body of the function if you have the right spacing.
 
-## Recursion on Lists
+## Recursion on Lists ⭐️
 
 In this exercise, you will write recursive functions that operate on lists. These lists are represented as instances of the `IntList` class. An `IntList` can be either:
 
@@ -110,12 +110,13 @@ val res41: Int = 32
 
 You are now prepared to solve the exercises in the file  [`ExLists.scala`](./src/main/scala/recursion/ExLists.scala) and implement the corresponding functions.
 
-## Lists as Sets
+## Lists as Sets 🔥
+
 Lists are ordered collections of objects; as a result, most set operations can be defined on them too. There is no additional explanation needed to solve the corresponding exercises.  
 
 You are now prepared to solve the exercises in the file [`ExListsAsSets.scala`](./src/main/scala/recursion/ExListsAsSets.scala) and implement the corresponding functions.
 
-## Recursion on Trees
+## Recursion on Trees ⭐️
 Now, we’ll explore recursion on binary trees. A binary tree is a tree where each node has at most two children. An `IntTree` can be either:
 
 + `IntEmptyTree()`, which represents an empty tree,
@@ -171,13 +172,13 @@ val res22: Boolean = true
 
 You are now prepared to solve the exercises in the file [`ExTrees.scala`](./src/main/scala/recursion/ExTrees.scala) and implement the corresponding functions.
 
-### Recursion on Strings
+### Recursion on Strings 🔥
 
 In this exercise, you will write recursive functions that operate on strings. A `String` can be thought of as a list of characters. Like lists, we can apply the same structural recursion principles to strings. Each string has the `isEmpty`, `head` and `tail` methods similar to `IntList`:
 
 ```scala
 scala> "Hello Ada".tail
-val res25: String = ello Ada
+val res25: String = hello Ada
 
 scala> "Hello Ada".tail.head
 val res26: Char = e
@@ -198,7 +199,7 @@ For the respective exercises, you must not use any other method than `isEmpty`, 
 
 You are now prepared to solve the exercises in the file [`ExStrings.scala`](./src/main/scala/recursion/ExStrings.scala) and implement the corresponding functions.
 
-## Geometric Objects
+## Geometric Objects ⭐️
 
 We want to construct a class hierarchy of some geometric objects, namely circles, squares and cubes. Before we guide you through the exercise, here is what we want to implement in the end. You may try to implement this without further reading. The file for this exercise is [`Geometry.scala`](./src/main/scala/geometricObjects/Geometry.scala)
 

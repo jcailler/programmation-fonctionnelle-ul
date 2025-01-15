@@ -46,7 +46,7 @@ If you find yourself looking for more examples of pattern matching after complet
 </details>
 
 
-## Weekdays ([Weekday.scala](./src/main/scala/patmat/Weekday.scala) & [WeekdayOps.scala](./src/main/scala/patmat/WeekdayOps.scala))
+## Weekdays ([Weekday.scala](./src/main/scala/patmat/Weekday.scala) & [WeekdayOps.scala](./src/main/scala/patmat/WeekdayOps.scala)) ⭐️
 
 Days of the week are a great example of simple enumerations. So, which day is tomorrow? let's implement a function to find out.
 
@@ -86,7 +86,7 @@ Want to test your code? Run `testOnly WeekdayOpsTest` in `sbt`.
 > [!NOTE]
 > This exercise is taken from [Logical Foundations](https://softwarefoundations.cis.upenn.edu/lf-current/Basics.html), a book about mathematical proofs of programs, and translated into Scala.
 
-## Tri-booleans ([TriBool.scala](./src/main/scala/patmat/TriBool.scala) & [TriBoolOps.scala](./src/main/scala/patmat/TriBoolOps.scala))
+## Tri-booleans ([TriBool.scala](./src/main/scala/patmat/TriBool.scala) & [TriBoolOps.scala](./src/main/scala/patmat/TriBoolOps.scala)) ⭐️
 
 By now you're very familiar with Booleans. But in real life, not every thing is `Yes` or `No`: sometimes we just don't know! Tri-boolean logic helps with this by adding an indeterminate value, `Maybe` (in [TriBool.scala](./src/main/scala/patmat/TriBool.scala)):
 
@@ -147,7 +147,7 @@ Want to test your code? Run `testOnly TriBoolOpsTest` in `sbt`.
 > [!NOTE] 
 > `nand` is a very surprising operator. If you're not familiar with it, inspect the test cases, or [read more about it!](https://en.wikipedia.org/wiki/Sheffer_stroke)
 
-## Contexts ([EnumContext.scala](./src/main/scala/patmat/EnumContext.scala))
+## Contexts ([EnumContext.scala](./src/main/scala/patmat/EnumContext.scala)) ⭐️
 
 Now that you have a bit of experience with pattern matching, let's use it to construct more complex types. In this exercise we'll study *contexts*, which are essentially lists of keys and values. 
 
@@ -226,7 +226,7 @@ Implement the following three functions (in [EnumContext.scala](./src/main/scala
 Want to test your code? Run `testOnly EnumContextTest` in `sbt`.
 </details>
 
-## Tree Mapping and Reducing ([IntTree.scala](./src/main/scala/patmat/IntTree.scala) & [IntTreeOps.scala](./src/main/scala/patmat/IntTreeOps.scala))
+## Tree Mapping and Reducing ([IntTree.scala](./src/main/scala/patmat/IntTree.scala) & [IntTreeOps.scala](./src/main/scala/patmat/IntTreeOps.scala)) 🔥
 
 <details>
 <summary> Hint </summary>
@@ -254,7 +254,7 @@ Branch(Branch(Leaf(1), Leaf(2)), Leaf(3))
   ```
 </details>
 
-![treeExampleImage](example.jpg)
+![treeExampleImage](figures/example.jpg)
 
 ### Tree Mapping
 
@@ -269,9 +269,9 @@ It takes a tree and adds a specified value to each leaf node.
 
 For instance, let's name the tree we just saw in the diagram as `t`. The following diagram dipicts the computation of `treeMap(t, 1)`.
 
-![treeMapExampleImage1](treeMap1.jpg)
+![treeMapExampleImage1](figures/treeMap1.jpg)
 
-![treeMapExampleImage2](treeMap2.jpg)
+![treeMapExampleImage2](figures/treeMap2.jpg)
 
 We will later see a generalized `treeMap` function that can apply arbitrary functions to the values in a tree.
 
@@ -286,9 +286,9 @@ def treeReduce(tree: IntTree): Int =
 
 Given a tree, the function returns the sum of all leaf nodes. The diagram below depicts the process `treeReduce(t)`.
 
-![treeReduceExampleImage1](treeReduce1.jpg)
+![treeReduceExampleImage1](figures/treeReduce1.jpg)
 
-![treeReduceExampleImage2](treeReduce2.jpg)
+![treeReduceExampleImage2](figures/treeReduce2.jpg)
 
 Intuitively, it is a *bottom-up* aggregation of values in the leaves. The values flow from the bottom to the root. At each branch node, the aggregated results from the two children are merged.
 
@@ -301,7 +301,7 @@ A bit more formally,
 
 Again, we will later see `reduce` in a more general setting, not just summation of values.
 
-## IntList ([IntList.scala](./src/main/scala/patmat/IntList.scala) & [IntListOps.scala](./src/main/scala/patmat/IntListOps.scala))
+## IntList ([IntList.scala](./src/main/scala/patmat/IntList.scala) & [IntListOps.scala](./src/main/scala/patmat/IntListOps.scala)) 🔥
 
 You already used `IntList`s in last weeks exercise, let's implement a few functions again, this time with pattern matching. Before starting this part of exercises, we suggest you implementing several `IntList` questions from previous weeks' exercises using pattern matching to warm yourself up!
 
@@ -387,3 +387,180 @@ def unzip(l: IntIntList): (IntList, IntList) =
 def movingWindow(l: IntList): IntIntList =
   ???
 ```
+
+
+## Contexts as Binary Search Trees ([BST.scala](./src/main/scala/patmat/BST.scala) and [BSTOps.scala](./src/main/scala/patmat/BSTOps.scala)) 🔥
+
+The contexts that we have seen up to this point are a bit inefficient: lookups take  $\mathrm{O}(n)$, where $n$ is the number of bindings.  Let's do better.  We want a data structure that allows us to do fast insertions, retrievals (lookups), and removals.
+
+- Think about the requirements above. Are some of these operations already fast with function contexts? How about with linked-list contexts?
+
+In this exercise, we will explore “binary search trees”, a kind of tree data structure that exploits the fact that keys can be *ordered* (sorted) to distribute the names into a sorted data structure in which lookups are more efficient (especially when compared to searching through every element in a linked list!).
+
+In general, binary search trees (BSTs) can store sets of any types of values, or mappings from any types of keys to values.  In this exercise we consider BSTs that associate strings to integers (like our previous contexts).
+
+### Definition
+
+So, what are BSTs? Let's see some examples!
+
+1. The following tree stores the bindings `"a" → 1`, `"b" → 2` and `"c" → 0`.
+   (We use `"a" → 1` to mean a binding that associates `"a"` (a key) with `1` (a value)).
+
+![treeReduceExampleImage2](figures/bst1.png)
+
+<i style="color:gray"> Illustration of a BST. </i>
+
+   Each box denotes a node, whose left part is the key and right part the value.
+
+1. This one stores `"a" → 1`, `"b" → 3`, `"c" → 2`, `"d" → 4`:
+
+![treeReduceExampleImage2](figures/bst2.png)
+
+<i style="color:gray"> Illustration of another BST. </i>
+
+Look carefully at these examples.  What properties (“invariants”) do their nodes have?  Do you see a common pattern?
+
+<details>
+<summary>Show the answer</summary>
+
+BST keys are *ordered*: a node with key `k` and two children `left` and `right` has the *BST property* if all keys in its `left` subtree are less than `k`, and all keys in its `right` subtree are greater than `k`.  Notice that there are no constraints on the values: in the examples above, the strings are ordered but the values are not.
+
+![treeReduceExampleImage2](figures/bstprinciple.png)
+
+<i style="color:gray"> BST principle. </i>
+
+</details>
+
+<div class="note check">
+
+Construct a BST that stores `"a" → 1`, `"b" → 3`, `"c" → 2`, `"d" → 4` and `"e" → 0`.
+
+> [!NOTE]
+> The answer is not unique: any tree that conforms to the principle and stores these bindings works.
+
+<details class="hint">
+<summary>Reference tree</summary>
+
+![treeReduceExampleImage2](figures/bst3.png)
+</details>
+
+</div>
+
+Here is the Scala `enum` that we'll use to represent BSTs:
+
+```Scala
+enum BSTContext:
+  case Leaf
+  case Branch(k: String, v: Int, l: BSTContext, r: BSTContext)
+
+  def isLeaf: Boolean = this match
+    case Leaf      => true
+    case _: Branch => false
+
+  def key: String = this match
+    case Leaf               => throw RuntimeException("key of a leaf")
+    case Branch(k, v, l, r) => k
+
+  def value: Int = this match
+    case Leaf               => throw RuntimeException("value of a leaf")
+    case Branch(k, v, l, r) => v
+
+  def left: BSTContext = this match
+    case Leaf               => throw RuntimeException("left of a leaf")
+    case Branch(k, v, l, r) => l
+
+  def right: BSTContext = this match
+    case Leaf               => throw RuntimeException("right of a leaf")
+    case Branch(k, v, l, r) => r
+```
+
+It closely mirrors the structure of the trees pictured above:
+- A `Branch` is a node, with the `k`-`v` pair and two subtrees.
+- `Leaf` represents missing subtrees. They are not drawn on the diagrams above:
+  when a subtree is missing in the diagram, there is implicitly a leaf in its position.
+
+Compare this type to the `EnumContext` that we saw previously. How does it differ?
+
+### Basic operations
+
+1. Implement `lookup` on BST contexts ([BSTOps.scala](./src/main/scala/patmat/BSTOps.scala)). If a branch's root does not match the key that you are looking for, how can you (quickly) determine whether to explore the left or right subtree?
+
+```Scala
+def lookup(bst: BSTContext, key: String): LookupResult =
+  ???
+```
+
+2. Implement `insert`:
+
+```Scala
+def insert(bst: BSTContext, key: String, v: Int): BSTContext =
+  ???
+```
+
+
+To get you a feeling of why looking up bindings in a BST is fast, consider the following questions:
+
+1. In the worst case, how many steps it will take to lookup a BST of depth $d$? (The *depth* of a BST, or its *height*, is the length of the longest path from the root to a leaf.)
+
+   <details>
+   <summary>Answer</summary>
+
+   $d$.
+
+   </details>
+
+2. How many bindings can a BST of depth $d$ store?
+
+   <details>
+   <summary>Answer</summary>
+
+   $2^d-1$.
+
+   </details>
+
+3. If we were to store that many bindings in a context-like structure, what would be the worst-case lookup time?
+
+   <details>
+   <summary>answer</summary>
+
+   $O(2^d-1)$.
+
+   </details>
+
+### Rotations
+
+The performance of `lookup` in a BST context depends on how deep the node containing the corresponding key is: in the worst case (when the node is the furthest one from the root), a lookup can take time proportional to the depth of the tree.
+
+This is bad!  There is nothing in our implementation above that guarantees that a BST will be *balanced*, so we have no guarantees that the data will be evenly packed together: we may get some very long paths, and some very short ones.  In fact, let's look at an example:
+
+- Draw the tree that results from calling `insert` with the following bindings, in order: `"a" → 1`, `"b" → 2`, `"c" → 1`, `"d" → 2`, `"e" → 0`, `"f" → 5`.  What shape do you get?
+
+It would be much preferable to produce *balanced* BSTs.  A full balanced BST is beyond the scope of this exercise, but we can look at the most important operation: [rotations](https://en.wikipedia.org/wiki/Tree_rotation).
+
+The following diagram illustrates two rotations (left and right), with the root node colored in blue:
+
+![treeReduceExampleImage2](figures/rotation.png)
+
+<i style="color:gray"> Illustration of rotation. </i>
+
+
+Take the left rotation as an example: it transforms an input tree in the form of the left hand side into the right hand side.  The tree root changes from `k1` to `k2`.
+
+- Why do rotations preserve the BST property?
+- What does the tree look like if we right-rotate the aforementioned degenerated BST?
+- What if we right-rotate twice?
+
+Most self-balancing BSTs use rotations to preserve balance across insertions (famous examples include AVL trees and Red-black trees).
+
+You should now be ready to implement rotations:
+
+```Scala
+def rotateLeft(tree: BSTContext): BSTContext = 
+  ???
+
+def rotateRight(tree: BSTContext): BSTContext =
+  ???
+```
+
+Can you implement `rotateLeft` with `if`s instead of pattern matching?
+Which version is more readable?
