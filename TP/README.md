@@ -9,4 +9,5 @@ The TP contain a lot of questions. You do not need to complete all exercises to 
 
 * [TP0: Setting up Visual Studio Code and Scala](./TP0/)
 * [TP1: Scala Basics](./TP1/)
-* [TP2: Recursion](./TP2/)
+* [TP2: Recursion and Classes](./TP2/)
+* [TP2: Recursion](./TP3/)
