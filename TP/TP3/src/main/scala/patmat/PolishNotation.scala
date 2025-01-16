@@ -9,6 +9,8 @@ enum PolishNotation:
   case PNil
   case PCons(atom: PolishNotationAtom, rest: PolishNotation)
 
+class InvalidOperationNumber extends RuntimeException
+
 import PolishNotationAtom.*
 import PolishNotation.*
 

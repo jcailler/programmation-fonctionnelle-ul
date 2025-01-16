@@ -1,4 +1,6 @@
 package patmat
+import  IntList.* 
+import IntIntList.*
 
 enum ExtractResult:
   case SecondElem(i: Int)
