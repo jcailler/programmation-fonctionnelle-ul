@@ -7,26 +7,24 @@ This exercise set is intended to help you practice pattern matching.
 In previous exercises, we used `if` conditionals and `.` field accessors to write functions on data types such as lists or trees. This week, we'll use pattern matching to make these functions more succinct and readable. We'll move from this:
 
 ```scala
-def reduceIf(f: (Int, Int) => Int)(l: IntList): Int =
-  if l.isEmpty then throw IllegalArgumentException("Empty list!")
-  else if l.tail.isEmpty then l.head
-  else f(l.head, reduceIf(f)(l.tail))
+def removeZeroes(l: IntList): IntList =
+  if l.isEmpty then IntNil()
+  else if l.head == 0 then removeZeroes(l.tail)
+  else IntCons(l.head, removeZeroes(l.tail))
 ```
 
 to this:
 
 ```scala
-def reduceMatch(f: (Int, Int) => Int)(l: IntList): Int =
+def removeZeroes(l: IntList): IntList =
   l match
-    case IntNil              => throw IllegalArgumentException("Empty list!")
-    case IntCons(hd, IntNil) => hd
-    case IntCons(hd, tl)     => f(hd, reduceMatch(f)(tl))
+    case IntNil              => IntNil
+    case IntCons(0, tl)      => tl
+    case IntCons(hd, tl)     => Cons(hd, removeZeroes(tl))
 ```
 
 Most functional programmers find the second one much more readable, because it aligns the way the data is *destructed* (taken apart into a head and a tail) and the way the data is *constructed* (assembled from a head and a tail):
 
-> [!NOTE]
-> in this function, the `f` is a higher-order argument. We will discuss them in detail later.
 
 ```scala
 def constructDestruct =
