@@ -1,8 +1,5 @@
 package patmat
 
-def polishEval(l: IntList): (Int, IntList) =
-  ???
-
 enum ExtractResult:
   case SecondElem(i: Int)
   case NotLongEnough

@@ -1,7 +1,11 @@
 package patmat
 
-def next(d: Weekday): Weekday =
-  ???
+import Weekday.*
 
-def prev(d: Weekday): Weekday =
-  ???
+object WeekdayOps:
+
+  def next(d: Weekday): Weekday =
+    ???
+
+  def prev(d: Weekday): Weekday =
+    ???

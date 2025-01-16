@@ -226,6 +226,7 @@ Implement the following three functions (in [EnumContext.scala](./src/main/scala
 Want to test your code? Run `testOnly EnumContextTest` in `sbt`.
 </details>
 
+
 ## Tree Mapping and Reducing ([IntTree.scala](./src/main/scala/patmat/IntTree.scala) & [IntTreeOps.scala](./src/main/scala/patmat/IntTreeOps.scala)) 🔥
 
 <details>
@@ -301,6 +302,53 @@ A bit more formally,
 
 Again, we will later see `reduce` in a more general setting, not just summation of values.
 
+
+## Polish Notation ([PolishNotation.scala](./src/main/scala/patmat/PolishNotation.scala)) 🔥
+
+
+<details>
+<summary> Hint </summary>
+Want to check answers in this section on computer? Test them with `testOnly POlishNotationTest`.
+</details>
+
+First, rewrite `polishEval` ([from last week](../TP2/)) with pattern-matching (in [IntListOps.scala](./src/main/scala/patmat/IntListOps.scala)):
+
+1. Create appropriate types to encode atoms (operators and numbers) and Polish notation expressions (lists of atoms):
+
+```scala
+enum PolishNotationAtom:
+  case Add
+  case Multiply
+  case Number(n: Int)
+
+enum PolishNotation:
+  case PNil
+  case PCons(atom: PolishNotationAtom, rest: PolishNotation)
+```
+
+2. Rewrite the two provided examples to use your notation:
+
+```scala
+def plusOneTwo: PolishNotation = // + 1 2
+  ???
+
+def plusTwoTimesThreeFour: PolishNotation = // + 2 * 3 4
+  ???
+```
+
+3. Rewrite the polishEval function so that it uses pattern matching:
+
+```scala
+def polishEval(l: PolishNotation): (Int, PolishNotation) =
+  ???
+```
+
+4. Compare your new version with the original `if`-based implementation. Which one is more readable?
+
+
+Throw `InvalidOperationNumber` exception if the operator is not defined, and `InvalidExpression` if the input is not a valid polish-notation expression.
+
+
 ## IntList ([IntList.scala](./src/main/scala/patmat/IntList.scala) & [IntListOps.scala](./src/main/scala/patmat/IntListOps.scala)) 🔥
 
 You already used `IntList`s in last weeks exercise, let's implement a few functions again, this time with pattern matching. Before starting this part of exercises, we suggest you implementing several `IntList` questions from previous weeks' exercises using pattern matching to warm yourself up!
@@ -312,19 +360,6 @@ You already used `IntList`s in last weeks exercise, let's implement a few functi
 Want to check answers in this section on computer? Test them with `testOnly IntListOpsTest`.
 </details>
 
-
-### polishEval
-
-First, rewrite `polishEval` ([from last week](../TP2/)) with pattern-matching (in [IntListOps.scala](./src/main/scala/patmat/IntListOps.scala)):
-
-  ```scala
-  def polishEval(l: IntList): (Int, IntList) =
-    ???
-  ```
-
-Throw `InvalidOperationNumber exception` if the operator is not defined, and `InvalidExpression` if the input is not a valid polish-notation expression.
-
-Compare your version with the original `if`-based implementation. Which one is more readable?
 
 ### extractSecond
 
@@ -379,9 +414,9 @@ def unzip(l: IntIntList): (IntList, IntList) =
   ???
 ```
 
-3. What relations are there between `zip` and `unzip`? Are you able to prove those relations?
+1. What relations are there between `zip` and `unzip`?
 
-4. Use your function `zip` to implement a function `movingWindow` on lists that returns sequences of consecutive pairs in its input list. For example, `movingWindow` applied to the list `a b c d e` should produce the list `ab bc cd de`.
+2. Use your function `zip` to implement a function `movingWindow` on lists that returns sequences of consecutive pairs in its input list. For example, `movingWindow` applied to the list `a b c d e` should produce the list `ab bc cd de`.
 
 ```scala
 def movingWindow(l: IntList): IntIntList =

@@ -13,7 +13,7 @@ oneTwoMinusThreeFour.tail
 oneTwoMinusThreeFour.tail.head
 
 // The call below currently fails with a `NotImplementedError`. Go to
-// `src/main/scala/recursion/listOps.scala`, implement the `length` function,
+// `src/main/scala/recursion/ExList.scala`, implement the `length` function,
 // and uncomment the call below to test your implementation.
 
 // length(oneTwoMinusThreeFour)

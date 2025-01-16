@@ -106,7 +106,14 @@ scala> polishEval(expr2)._1
 val res41: Int = 32
 ```
 
-`polishEval` is supposed to return a pair which consists of an Integer, which will be our result and an IntList which is necessary for the recursive calls.
+`polishEval` is supposed to return a pair which consists of an `Integer`, which will be our result and an `IntList` which is necessary for the recursive calls.
+
+Before starting to write code, think about how you would evaluate a PN expression. You'll need to look at the first element of the list to determine what to do next. If it's an operator, you'll need to evaluate its arguments (where are they?). If it's a number, you'll need to return it. If it's not a number or an operator, you'll need to throw an `InvalidOperatorException()` exception (with a parameter). If there is not enough arguments, you need to throw a `EmptyListException()` exception.
+
+You can throw an exception with:
+```Scala
+throw EmptyListException()
+```
 
 You are now prepared to solve the exercises in the file  [`ExLists.scala`](./src/main/scala/recursion/ExLists.scala) and implement the corresponding functions.
 

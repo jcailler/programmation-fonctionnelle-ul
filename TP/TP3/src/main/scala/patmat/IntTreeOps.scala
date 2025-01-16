@@ -1,7 +1,11 @@
 package patmat
 
-def treeMap(tree: IntTree, value: Int): IntTree = 
-  ???
+import IntTree.*
 
-def treeReduce(tree: IntTree): Int = 
-  ???
+object IntTreeOps:
+
+  def treeMap(tree: IntTree, value: Int): IntTree = 
+    ???
+
+  def treeReduce(tree: IntTree): Int = 
+    ???
