@@ -1,10 +1,10 @@
 package patmat
 
 import BSTContext.*
+import EnumContext.LookupResult
+import LookupResult.*
 
 object BSTOps:
-  import EnumContext.LookupResult
-  import LookupResult.*
 
   def lookup(bst: BSTContext, key: String): LookupResult =
     ???

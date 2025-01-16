@@ -1,7 +1,7 @@
 package patmat
+import TriBool.*
 
 object TriBoolOps:
-  import TriBool.*
 
     def neg(b: TriBool): TriBool =
         ???

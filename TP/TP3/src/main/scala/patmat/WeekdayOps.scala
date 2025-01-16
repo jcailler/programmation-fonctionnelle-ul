@@ -1,5 +1,4 @@
 package patmat
-
 import Weekday.*
 
 object WeekdayOps:
