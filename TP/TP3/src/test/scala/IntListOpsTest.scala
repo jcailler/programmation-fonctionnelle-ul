@@ -2,7 +2,7 @@ import patmat.*
 import IntList.*
 import IntIntList.*
 
-abstract class IntListOpsTestBase extends munit.FunSuite:
+class IntListOpsTest extends munit.FunSuite:
   test("extractSecond: empty"):
     assertEquals(extractSecond(IntNil), ExtractResult.EmptyList)
 
