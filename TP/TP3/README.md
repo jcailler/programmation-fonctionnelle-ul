@@ -1,4 +1,4 @@
-# Functional Programming - TP 3: Pattern Matching
+# Functional Programming - TP 3: ADT & Pattern Matching
 
 This exercise set is intended to help you practice pattern matching.
 
