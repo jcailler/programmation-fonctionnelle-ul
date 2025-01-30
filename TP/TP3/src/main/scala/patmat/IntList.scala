@@ -24,12 +24,3 @@ enum IntList:
 enum IntIntList:
   case IntIntNil
   case IntIntCons(xy: (Int, Int), xs: IntIntList)
-import IntIntList.*
-
-import IntList.*
-
-def constructDestruct =
-  IntCons(1, IntCons(2, IntNil)) match
-    case IntCons(a, IntCons(b, IntNil)) =>
-      println(f"Found $a and $b")
-    case _ => throw Exception("Not possible!")
