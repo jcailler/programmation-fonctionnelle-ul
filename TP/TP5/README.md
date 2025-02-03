@@ -4,7 +4,7 @@ The exercise set is intended to help you practice lists and polymorphism.
 
 ## Warm-Up: Polymorphic Lists ⭐️
 
-In previous exercises and labs, we used `IntList` for lists which elements are integers. This week, we’ll move to polymorphic lists.
+In previous exercises and labs, we used `IntList` for lists which elements are integers. This week, we'll move to polymorphic lists.
 
 <details><summary> Reminder: Algebraic Data Types </summary>
 
@@ -23,7 +23,7 @@ enum MyList[+A]:
 > [!TIP] Covariance
 > The `+` before `A` indicates that `List` is covariant in `A`. Check [this](https://docs.scala-lang.org/tour/variances.html) for more details, or ignore it for now — we will cover it later!
 
-We’ll use the above `MyList` type in this exercise.
+We'll use the above `MyList` type in this exercise.
 
 > [!NOTE] Check Yourself
 > How would you define the `isEmpty`, `head`, and `tail` methods on such polymorphic lists?
@@ -154,10 +154,10 @@ You might need `toUpper` and `isWhitespace`
 ```
 
 > [!WARNING] 
-> The solution from exercise session 2 for wordCount doesn’t express itself naturally as a fold… try to look for a different one!
+> The solution from exercise session 2 for wordCount doesn't express itself naturally as a fold… try to look for a different one!
 
 > [!NOTE]
-> Both `String` and `List[Char]` or `MyList[Char]` represent sequences of characters. However, it’s usually more efficient and convenient to use `String` for text processing and manipulation in Scala because `String` has optimized storage for texts and rich APIs tailored for text operations.
+> Both `String` and `List[Char]` or `MyList[Char]` represent sequences of characters. However, it's usually more efficient and convenient to use `String` for text processing and manipulation in Scala because `String` has optimized storage for texts and rich APIs tailored for text operations.
 
 ### Part 2: More Functions --- `flatMap` and `cross-product`
 
@@ -268,7 +268,7 @@ You are free to decide which of the three you return.
 
 A skeleton for this part is given in the file [`Option.scala`](src/main/scala/Option.scala) of the exercise files.
 
-In last week’s exercises, we use a custom type `LookupResult` for the result of looking up in a context:
+In last week's exercises, we use a custom type `LookupResult` for the result of looking up in a context:
 
 ```scala
 enum LookupResult:
@@ -276,7 +276,7 @@ enum LookupResult:
   case NotFound
 ```
 
-It’s always good to explore the [Scala standard library](https://scala-lang.org/api/3.x/). After all, why use a custom type when there is something suitable in the standard library?
+It's always good to explore the [Scala standard library](https://scala-lang.org/api/3.x/). After all, why use a custom type when there is something suitable in the standard library?
 
 Can you find a suitable type for `LookupResult`?
 
@@ -297,7 +297,7 @@ The basic usage of `Option` type is as the return type of functions that might n
 
 `Option` has two possible outcomes: `Some` and `None` (which are self-explanatory). For example if your function has as return type `Option[Int]`, then you can return either an integer `n` by `Some(n)` or return nothing by `None`.
 
-Implement `findFirstEvenNumber` to return the first even number in the list, or `None` if there isn’t one.
+Implement `findFirstEvenNumber` to return the first even number in the list, or `None` if there isn't one.
 
 ```scala
 def positiveOrNothing(n: Int): Option[Int] = 
@@ -327,7 +327,7 @@ An option is like a list with only one element.
 
 **In this part**, we use the `List` (`scala.collection.immutable.List`) from the standard library.
 
-You can compare the definition of `map`, `flatMap` and `filter` in [standard library `List` methods](https://scala-lang.org/api/3.x/scala/collection/immutable/List.html#) with [`Option`](https://scala-lang.org/api/3.x/scala/Option.html#)’s. Do the definitions line up? What’s the difference between the definitions on `scala.collection.immutable.List` and our custom polymorphic lists `poly.MyList`?
+You can compare the definition of `map`, `flatMap` and `filter` in [standard library `List` methods](https://scala-lang.org/api/3.x/scala/collection/immutable/List.html#) with [`Option`](https://scala-lang.org/api/3.x/scala/Option.html#)'s. Do the definitions line up? What's the difference between the definitions on `scala.collection.immutable.List` and our custom polymorphic lists `poly.MyList`?
 
 1. Implement `parseStringToInt` and `findSquareRoot`. Then, define `findSquartRootFromString` to chain these two functions to parse a string and find its square root.
 
@@ -442,7 +442,7 @@ The main difference between foldLeft and foldRight is that foldLeft is typically
     def reverseAppend[A](l1: MyList[A], l2: MyList[A]): MyList[A] =
       ???
 ```
-4. Implement `countEven` and `totalLength` using `foldLeft`. `CountEven` takes a list of integers and returns the number of even integers in the list; `totalLength` takes a list of strings and return the sum of each string’s length.
+4. Implement `countEven` and `totalLength` using `foldLeft`. `CountEven` takes a list of integers and returns the number of even integers in the list; `totalLength` takes a list of strings and return the sum of each string's length.
 
 ```scala
     val countEven: MyList[Int] => Int =
@@ -512,7 +512,7 @@ def listConcatLifter[A, B](f: A => MyList[B], g: A => MyList[B]): A => MyList[B]
   a => append(f(a),g(a))
 ```
 
-Write a `binaryLifter` higher-order function to capture the common pattern above, and use it to rewrite all four lifters that we’ve seen up to this point.
+Write a `binaryLifter` higher-order function to capture the common pattern above, and use it to rewrite all four lifters that we've seen up to this point.
 
 ```scala
 def binaryLifter[A, B, C](op: (B, B) => C)(f: A => B, g: A => B): A => C =

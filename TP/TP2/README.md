@@ -3,7 +3,7 @@
 In this exercise you will learn about structural recursion and classes management in scala.
 
 ## Structural Recursion ⭐️
-* We provide the signature of the functions you need to write in the exercise files. The body is replaced with `???`: that’s the part you need to come up with!
+* We provide the signature of the functions you need to write in the exercise files. The body is replaced with `???`: that's the part you need to come up with!
 * The exercise files are found in the folder `TP2/src/main/scala/recursion`. The exercises are those files which start with `Ex` (for exercise), sorted by the type of structure you will work on. The files `IntList.scala` and `IntTree.scala` should **stay unchanged**. They define the necessary classes you will work on in the exercises.
 * You will perform recursion on different structures like lists, trees, etc. The sufficient background to solve the exercises is given below.
 * The number of exercises is quite large, the exercises are provided for training purposes. Feel free to skip some of the simpler ones if you already have a good grasp on recursion and Scala programming!
@@ -75,7 +75,7 @@ The last exercise on recursion on lists is a bit more advanced that the previous
 
 Polish Notation (PN) is a way to write arithmetic expressions where every operator comes before its operands. For example, instead of writing `3 + 4`, you would write `+ 3 4`.
 
-Your task is to implement a PN evaluator for an `IntList` where operators are represented by negative integers: we’ll deal with just addition and multiplication for now:
+Your task is to implement a PN evaluator for an `IntList` where operators are represented by negative integers: we'll deal with just addition and multiplication for now:
 
 ```scala
 val Add = -1
@@ -124,7 +124,7 @@ Lists are ordered collections of objects; as a result, most set operations can b
 You are now prepared to solve the exercises in the file [`ExListsAsSets.scala`](./src/main/scala/recursion/ExListsAsSets.scala) and implement the corresponding functions.
 
 ## Recursion on Trees ⭐️
-Now, we’ll explore recursion on binary trees. A binary tree is a tree where each node has at most two children. An `IntTree` can be either:
+Now, we'll explore recursion on binary trees. A binary tree is a tree where each node has at most two children. An `IntTree` can be either:
 
 + `IntEmptyTree()`, which represents an empty tree,
 + `IntBranch( value , left , right)`: which represents a node with value `value` (an integer) and two children `left` and `right` (trees of integers).

@@ -1,19 +1,19 @@
 # Functional Programming - TP 4: Higher-Order Functions
 
-In this exercise, you'll start by revisiting exercise 2's questions, and search for ways to leverage the power of higher-order functions to write shorter, simpler code. Then you'll become familiar with the notion of “functions as values”. You’ll store functions in `val`s, combine them, make functions that make functions that make functions, etc. 
+In this exercise, you'll start by revisiting exercise 2's questions, and search for ways to leverage the power of higher-order functions to write shorter, simpler code. Then you'll become familiar with the notion of “functions as values”. You'll store functions in `val`s, combine them, make functions that make functions that make functions, etc. 
 
 ## Higher-Order Functions on Lists and Trees 
 
-Many of you noted that we asked to write very similar code many, many times in TP 2. Let’s explore this observation in more detail.
+Many of you noted that we asked to write very similar code many, many times in TP 2. Let's explore this observation in more detail.
 
 ### Part 1: Observation ⭐️
-Let’s look at five categories of functions, each illustrated by a pair of recursive functions from the `ExList` file of exercise 2 (also available [here](hof-index-cards.pdf) and in [ListOps.scala](src/main/scala/hofs/ListOps.scala)). 
+Let's look at five categories of functions, each illustrated by a pair of recursive functions from the `ExList` file of exercise 2 (also available [here](hof-index-cards.pdf) and in [ListOps.scala](src/main/scala/hofs/ListOps.scala)). 
 
-* `sum` and `product` (we’ll call this pair “`associative`”)
-* `increment` and `capAtZero` (we’ll call this pair “`map`”)
-* `collectEven` and `removeZeroes` (we’ll call this pair “`filter`”)
-* `countEven` and `multiplyOdd` (we’ll call this pair “`foldRight`”)
-* `min` and `last` (we’ll call this pair “`reduceRight`”)
+* `sum` and `product` (we'll call this pair “`associative`”)
+* `increment` and `capAtZero` (we'll call this pair “`map`”)
+* `collectEven` and `removeZeroes` (we'll call this pair “`filter`”)
+* `countEven` and `multiplyOdd` (we'll call this pair “`foldRight`”)
+* `min` and `last` (we'll call this pair “`reduceRight`”)
 
 We provide you files for each of those categories. You can find those categories in [src/main/scala/hofs](src/main/scala/hofs). 
 Read the implementation of these functions carefully. For each pair, ask yourself: what do these two functions have in common? Which parts differ? Highlight the differences.
@@ -21,12 +21,12 @@ Read the implementation of these functions carefully. For each pair, ask yoursel
 
 ### Part 2: Conjecture ⭐️
 
-Let’s see how well the patterns that you have found generalize. You should have around 20 function left. The objective now is to take all your functions and to put them into one of the five category above, based on how well it fits the pattern that you identified earlier. If you feel that you need more categories, that’s OK. Oh, and beware: two of the cards don’t fit!
+Let's see how well the patterns that you have found generalize. You should have around 20 function left. The objective now is to take all your functions and to put them into one of the five category above, based on how well it fits the pattern that you identified earlier. If you feel that you need more categories, that's OK. Oh, and beware: two of the cards don't fit!
 
 <details>
 <summary> Hint </summary>
 
-In particular, you may decide that `allEven`/`allPositiveOrZero`/`isSubset` and `anyOdd`/`anyNegative`/`contains` should be their own categories. That’s fine!
+In particular, you may decide that `allEven`/`allPositiveOrZero`/`isSubset` and `anyOdd`/`anyNegative`/`contains` should be their own categories. That's fine!
 
 </details><br/>
 
@@ -128,12 +128,12 @@ The general functions that you come up with will need additional parameters, jus
 > 3. Rewrite all the functions to isolate the parts that differ, representing the differences as `val`s.
 > 4. Transform the new `val`s into parameters of the function.
 > 
-> The following hint shows you this process step by step for “associative” (the category that contains sum and product), but don’t look just yet! Try it on your own and with other students first.
+> The following hint shows you this process step by step for “associative” (the category that contains sum and product), but don't look just yet! Try it on your own and with other students first.
 
 <details>
 <summary> Hint: Step-by-step example </summary>
 
-1. Let’s pick the “associative” category.
+1. Let's pick the “associative” category.
 2. There are two differences:
    * The base case (`0` vs `1`)
    * The recursive case (`+` vs `*`)
@@ -176,23 +176,23 @@ The general functions that you come up with will need additional parameters, jus
   val productVal = associativeCurried(1, (x, y) => x * y)
   ```
 
-Your turn! Once you get used to it, you will find that almost all of last week’s functions can be succinctly reimplemented.
+Your turn! Once you get used to it, you will find that almost all of last week's functions can be succinctly reimplemented.
 </details><br/>
 
 >[!TIP]
-> You will find that sometimes you cannot fully abstract across a whole category, because of types: for example, you will be able to write `countEven` and `multiplyOdd` using a single function, and `allPositiveOrZero` and `allEven` using a single function, but unifying the two will not work, due to mismatched types. It’s possible to unify them using a concept called *polymorphism*, which we will study later.
+> You will find that sometimes you cannot fully abstract across a whole category, because of types: for example, you will be able to write `countEven` and `multiplyOdd` using a single function, and `allPositiveOrZero` and `allEven` using a single function, but unifying the two will not work, due to mismatched types. It's possible to unify them using a concept called *polymorphism*, which we will study later.
 
 
 ### Part 4: Conclusion
 The higher-order functions that we have discovered today are useful beyond Scala, and have names common across programming languages:
-   * “`associative`” (`sum`/`product`), once suitably generalized, is almost identical to “`foldRight`”, so it typically doesn’t have its own name.
+   * “`associative`” (`sum`/`product`), once suitably generalized, is almost identical to “`foldRight`”, so it typically doesn't have its own name.
    * “`map`” (`increment`/`multiply`) and “`filter`” (`collectEven`/`removeOdd`) are special cases of `foldRight`. They are so useful that they are typically defined (and optimized) separately from `foldRight`, with their own name. They are present in the vast majority of modern programming languages (including JavaScript, Python, and Java).
-   * “`foldRight`” (`countEven`/`multiplyOdd`) and “`reduceRight`” (`minMax`/`last`) are similar to each other, but `reduceRight` uses the last element of the list as it’s starting point, and does not work for empty lists.
+   * “`foldRight`” (`countEven`/`multiplyOdd`) and “`reduceRight`” (`minMax`/`last`) are similar to each other, but `reduceRight` uses the last element of the list as it's starting point, and does not work for empty lists.
   
   
 Variants of these functions are found in many fields: in data science with MapReduce; in databases with `SELECT/WHERE` (`filter`); in graphics with GPUs and SIMD programs; and in many other computational sciences, where they help process large data sets. There are other such higher-order functions that capture common patterns, which we will explore throughout the course.
 
-The supporting code for this week’s exercise includes definitions of all of these functions, should you want to use them. We found them useful in our own solution.
+The supporting code for this week's exercise includes definitions of all of these functions, should you want to use them. We found them useful in our own solution.
 
 1. `map` and `filter` are special cases of `foldRight`. Can you rewrite them using `foldRight` instead of direct recursion?
 
@@ -368,7 +368,7 @@ def multiplier(f: Int => Double, g: Int => Double): Int => Double =
 
 #### Heavy Lifting
 
-Let’s extract the common code between the functions in the previous exercise.
+Let's extract the common code between the functions in the previous exercise.
 
 1. Write a function that takes a single function `op` (a binary operator such as `+`) and returns a lifted version of that operation (like adder above).
 ```Scala
@@ -505,9 +505,9 @@ val headIsPositive2 = ???
 
 #### Currying Container Functions ⭐️
 
-Now let’s see how these different styles can help:
+Now let's see how these different styles can help:
 
-Let’s assume we have a list of id numbers registered for this course (students and staff), and a separate list for just the staff. Thus, registered students are those that occur in the first list but not the second one:
+Let's assume we have a list of id numbers registered for this course (students and staff), and a separate list for just the staff. Thus, registered students are those that occur in the first list but not the second one:
 
 ```Scala
 val PFAll =

@@ -175,7 +175,7 @@ def multiplyOdd(l: IntList): Int ={
  *    a0+a1x+a2x^2+a3x^3+⋯+anx^n
  * We represent it as a list of coefficients [a0,a1,a2,⋯ ,an].
  *
- * Using the Horner’s rule,
+ * Using the Horner's rule,
  *  a0+x(a1+x(a2+x(a3+⋯+x(an−1+x an)⋯)))
  * write a function that evaluates a polynomial given its list
  * of coefficients and a value for x:
