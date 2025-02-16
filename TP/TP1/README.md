@@ -10,7 +10,7 @@ The goal of this exercise is to familiarize yourself with the tools and environm
 
 
 ## The Project Structure
-Now that we’ve obtained the project, let’s take a look at its structure:
+Now that we've obtained the project, let's take a look at its structure:
 ```
 .
 ├── build.sbt
@@ -28,30 +28,30 @@ Now that we’ve obtained the project, let’s take a look at its structure:
             └── degrees
                 └── ConvertTest.scala
 ``` 
-* All the files ending with `.sbt` or in the `project/ directory` are build tool configuration files: you don’t need to modify them yet. We will discuss them later in the course.
+* All the files ending with `.sbt` or in the `project/ directory` are build tool configuration files: you don't need to modify them yet. We will discuss them later in the course.
 * The material for this exercise is in `src/main/scala/`.
 * The sources of the unit tests are in `src/test/scala/`. You will need to make all the tests pass to complete the exercise, and you should write additional tests to check for cases that our tests do not cover.
 
 ## Using SBT and Running the Tests
 
-SBT stands for Scala Build Tool, it’s a dependency manager and build tool for Scala. We will use it to compile our code and run the tests.
+SBT stands for Scala Build Tool, it's a dependency manager and build tool for Scala. We will use it to compile our code and run the tests.
 
 Start SBT by positioning yourself in `programmation-fonctionnelle-ul/TP/TP1/` and run the following command:  
 ```
 $ sbt
 ```
 
-This command has to be run in the project’s root directory (in our case, ``programmation-fonctionnelle-ul/TP/TP1/`, but in the general case it is the directory that you cloned from git and that contains the `build.sbt` file).
+This command has to be run in the project's root directory (in our case, ``programmation-fonctionnelle-ul/TP/TP1/`, but in the general case it is the directory that you cloned from git and that contains the `build.sbt` file).
 
-Once it’s finished starting (this may take a while), you’ll be able to enter SBT commands:
+Once it's finished starting (this may take a while), you'll be able to enter SBT commands:
 
 * You can compile your project using the `compile` command.
 * You can run the tests with the `test` command (this automatically compiles your code if needed to). Note that if compilation fails, no tests will be run.
 * You can exit SBT using the `exit` command.
-* The first time you’ll run `test` in an exercise project you should see many errors: that’s normal, your job is to make the tests pass!
+* The first time you'll run `test` in an exercise project you should see many errors: that's normal, your job is to make the tests pass!
 
 
-Let’s look at the output of the test command in more detail:
+Let's look at the output of the test command in more detail:
 ```Make
 $ sbt
 [info] welcome to sbt 1.9.4 (Eclipse Adoptium Java 17)
@@ -101,14 +101,14 @@ This tells us several things:
 
 * The tests run are from the class `ConvertTest` in the `degrees` package.
 * The two first tests passed successfully.
-* The three last tests failed. That’s why they are displayed in red and start prefixed with `==> X`.
+* The three last tests failed. That's why they are displayed in red and start prefixed with `==> X`.
 * The failures were due to `munit.ComparisonFailException` errors.
-* You’ll need to go ahead and implement the `fahrenheitToCelsius` function to fix these test failures!
+* You'll need to go ahead and implement the `fahrenheitToCelsius` function to fix these test failures!
 
 ## Fixing the Tests
 
 ### Open VSCode
-If it is not already done, open VSCode and go to the `programmation-fonctionnelle-ul/TP/TP1/` folder. The first time the IDE starts, it will take some time to download more components. Eventually it will ask you to import the build, please click “Import build”. You’ll need to wait a bit for the import to finish, if an error appears try closing and restarting VS Code in the same way we started it above.
+If it is not already done, open VSCode and go to the `programmation-fonctionnelle-ul/TP/TP1/` folder. The first time the IDE starts, it will take some time to download more components. Eventually it will ask you to import the build, please click “Import build”. You'll need to wait a bit for the import to finish, if an error appears try closing and restarting VS Code in the same way we started it above.
 
 ### Understand the Logs
 You are now going to fix the tests! Earlier we mentioned a failing test, the stack trace told us that it was failing on line `10` of the file `src/test/scala/degrees/ConvertTest.scala.`
@@ -143,11 +143,11 @@ def fahrenheitToCelsius(fahrenheit: Double): Double
 
 VSCode and Metals do not like to have multiple Scala project in the same workspace. If you want to be able to use Metals and all its features, you should stick to one open Scala project per workspace.
 
-If it does not solve your issue, it’s likely that the build wasn’t imported, we can import it manually:
+If it does not solve your issue, it's likely that the build wasn't imported, we can import it manually:
 
 Click on the “m” logo in the left bar and then in the sidebar that appears, click on “Import build”, then wait a bit.
 
-If things still don’t work, try restarting VS Code. If you’re still having issues, try clicking on “Clean compile” from the same sidebar.
+If things still don't work, try restarting VS Code. If you're still having issues, try clicking on “Clean compile” from the same sidebar.
 </details><br/>
 
 The hover is split into two parts: the first part is:
@@ -169,7 +169,7 @@ def fahrenheitToCelsius(fahrenheit: Double): Double =
 
 Now we know why the test failed: `fahrenheitToCelsius` always returns `42.0`!
 
-Once you’ve fixed this method, you can run `test` from sbt again to see if the test passed.
+Once you've fixed this method, you can run `test` from sbt again to see if the test passed.
 
 <details>
 <summary> Solution </summary>
@@ -230,7 +230,7 @@ hello("Ada") // : String = Hello Ada!
 
 ### The REPL
 
-If you are more of a terminal person, you can also use the Scala *REPL* for similar purposes. REPL stands for Read-Eval-Print-Loop, it’s a program that reads Scala expressions, evaluates them, prints the result, and then loops back to read the next expression.
+If you are more of a terminal person, you can also use the Scala *REPL* for similar purposes. REPL stands for Read-Eval-Print-Loop, it's a program that reads Scala expressions, evaluates them, prints the result, and then loops back to read the next expression.
 
 After having started SBT, you can start the REPL by typing `console`, you will see the following prompt:
 
