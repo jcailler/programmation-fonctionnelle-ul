@@ -13,4 +13,4 @@ The TP contain a lot of questions. You do not need to complete all exercises to 
 * [TP 3: ADT & Pattern Matching](./TP3/)
 * [TP 4: Higher-Order Functions](./TP4/)
 * [TP 5: Polymorphism](./TP5/)
-* [TP 6: Parallel Programming](./TP5/)
+* [TP 6: Parallel Programming](./TP6/)
