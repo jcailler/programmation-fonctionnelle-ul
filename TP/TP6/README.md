@@ -27,8 +27,6 @@ Let us start by those three notions. For you, what is the difference between seq
 
 Now, you can explore those different notions through various exercises. We recommend the following order:
 
-Note: The material for this exercise is supposed to cover two weeks. The lecture on 18 June covered at least the material for the first task (Threads and concurrency). However you are encouraged to already try the other parts of this exercise, although the material will not be taught before June 25.
-
 1. [Threads and concurrency](./threads/) ⭐️
 2. [Parallel functional programming](./parallelism/) ⭐️
 3. [Asynchronicity and futures](./futures/) ⭐️
