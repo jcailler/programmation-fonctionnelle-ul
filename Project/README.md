@@ -146,7 +146,7 @@ Lorsqu'on atteint une feuille, on décode le symbole correspondant, puis on reco
 
 <div class="note check">
 
-En utilisant l’arbre de Huffman du ci-dessus, à quel texte correspond la séquence de bits `10001010` ?
+En utilisant l’arbre de Huffman du ci-dessus, à quel texte correspond la séquence de bits `1000110` ?
 
 <details>
     <summary>Solution</summary>
@@ -169,7 +169,7 @@ SYMBOLS: A:0 B:100 C:110 D:111 E:101
 DATA: 1000110
 ```
 
-Le code d'un parseur est mis à votre disponisition dans [`HuffmanParser.scala`](./src/main/scala/HuffmanParser.scala). Une fichier exemple est disponible dans [`test.huf`](./src/test/huf/test.huf).
+Le code d'un parseur est mis à votre disposition dans [`HuffmanParser.scala`](./src/main/scala/HuffmanParser.scala). Une fichier exemple est disponible dans [`test.huf`](./src/test/huf/test.huf).
 
 
 ## Étapes du projet
