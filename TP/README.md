@@ -14,3 +14,4 @@ The TP contain a lot of questions. You do not need to complete all exercises to 
 * [TP 4: Higher-Order Functions](./TP4/)
 * [TP 5: Polymorphism](./TP5/)
 * [TP 6: Parallel Programming](./TP6/)
+* [TP 7: Laziness](./TP7/)
