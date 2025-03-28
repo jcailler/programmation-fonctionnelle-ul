@@ -8,7 +8,7 @@ Le but de ce projet est de travailler sur la compression de fichiers à l'aide d
 * Le projet doit être fait en Scala 3.
 * Le rendu se fera sous la forme d'un fichier zip et comportera 
   * Le code de votre projet.
-  * Un rapport (à titre indicatif, 5 pages) détaillant l'architecture de votre projet, les fonctionnalités implémentées, et toute autre information que vous jugerez utile. Ne négligez pas cette partie : la clarté de la rédaction sera prise en compte !
+  * Un rapport (à titre indicatif, 5 pages, écrit en français ou en anglais) détaillant l'architecture de votre projet, les fonctionnalités implémentées, et toute autre information que vous jugerez utile. Ne négligez pas cette partie : la clarté de la rédaction sera prise en compte !
 * Vous devrez effectuer des testes et les inclure dans votre rendu. Ces derniers seront également évalués.
 * Le projet doit être rendu avant le 11/03 à 14:00.
 
