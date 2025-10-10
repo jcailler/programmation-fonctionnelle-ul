@@ -166,7 +166,7 @@ Voici le format des fichier `.huf` que vous allez utiliser. La première ligne s
 ```
 HUF
 SYMBOLS: A:0 B:100 C:110 D:111 E:101 
-DATA: 1000110
+DATA: 10001010
 ```
 
 Le code d'un parseur est mis à votre disposition dans [`HuffmanParser.scala`](./src/main/scala/HuffmanParser.scala). Une fichier exemple est disponible dans [`test.huf`](./src/test/huf/test.huf). Attention: pour les caractères spéciaux, ces derniers doivent être encodés entre quote (par exemple, `'\n'` pour le retour à la ligne).
