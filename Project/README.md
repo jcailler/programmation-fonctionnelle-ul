@@ -146,7 +146,7 @@ Lorsqu'on atteint une feuille, on décode le symbole correspondant, puis on reco
 
 <div class="note check">
 
-En utilisant l’arbre de Huffman du ci-dessus, à quel texte correspond la séquence de bits `1000110` ?
+En utilisant l’arbre de Huffman du ci-dessus, à quel texte correspond la séquence de bits `10001010` ?
 
 <details>
     <summary>Solution</summary>
