@@ -40,7 +40,7 @@ This repository contains a simple hello-world project that you can use to get st
     - If you have `git` installed on your computer, you can *clone* the repository using the command `git clone https://github.com/jcailler/programmation-fonctionnelle-ul.git`, which will copy over all files to a sub-directory of your current directory.
     - The same can be done directly in VSCode: select `File - New Window` and the command `Clone Git Repository ...`. Provide the URL `https://github.com/jcailler/programmation-fonctionnelle-ul.git`
     - In your web browser you can download the repository contents by clicking on the green `<code>` button, selecting `Download ZIP`, and then unpacking the downloaded zip file.
-* In VSCode, choose `File - Open Folder` and select the `https://github.com/jcailler/programmation-fonctionnelle-ul/TP/TP0/hello-world` directory.
+* In VSCode, choose `File - Open Folder` and select the `https://github.com/jcailler/programmation-fonctionnelle-ul/TP0/hello-world` directory.
 * You will be able to see the different downloaded files in the `Explorer` pane, in particular the `build.sbt` file containing the Scala build configuration, and the sources `src/main/scala/Main.scala`.
 * To compile and run this project, you need to import the build settings into VSCode. Scala Metals might by itself offer to `Import build`, which you can agree to. Otherwise, change to the Metals pane (the "m" icon on the left side) and select the `Build Command` &rarr; `Import build`.
 * Once the project has been compiled, you can execute the program by selecting the `Main.scala` file and clicking on `run` or `debug`, occurring above the program code.

@@ -6,7 +6,7 @@ The goal of this exercise is to familiarize yourself with the tools and environm
 * Go to the following page: [https://github.com/jcailler/programmation-fonctionnelle-ul.git](https://github.com/jcailler/programmation-fonctionnelle-ul.git).
 * Clone or fork the repository: `git clone https://github.com/jcailler/programmation-fonctionnelle-ul.git` or download it by clicking on the green `<code>` button and selecting `download`.
 * This will create a directory named `programmation-fonctionnelle-ul`
-* Then, go to `TP/TP1`, where the `degrees` project is located. You can change your working directory by running the change directory (cd) command: `cd programmation-fonctionnelle-ul/TP/TP1`.
+* Then, go to `TP/TP1`, where the `degrees` project is located. You can change your working directory by running the change directory (cd) command: `cd programmation-fonctionnelle-ul/TP1`.
 
 
 ## The Project Structure
