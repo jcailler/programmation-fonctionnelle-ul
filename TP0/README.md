@@ -15,7 +15,7 @@ This page provides a step-by-step guide to install Scala 3 and/or Visual Studio 
 
 We recommend that you use VSCode to do the course exercises. To be able to use Scala on the command line, or in interactive mode, or to use other text editors for writing Scala code, follow those steps to install Scala and the Scala build tool `sbt`:
 
-* Open your favorite web browser and go to this webpage: [https://docs.scala-lang.org/getting-started/index.html](https://docs.scala-lang.org/getting-started/index.html)
+* Open your favorite web browser and go to this webpage: [https://docs.scala-lang.org/getting-started/install-scala.html](https://docs.scala-lang.org/getting-started/install-scala.html)
 * Follow the instructions related to your OS to install Scala version 3
 * You may need to restart your terminal, log out, or reboot in order for the changes to take effect
 * You should have the commands `scala` and `sbt` available now.
